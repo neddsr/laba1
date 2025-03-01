@@ -3,7 +3,7 @@
 ## Домашнее задание
 
 **Студента группы ИУ8-22**
-**Леонова Никиты**
+**Леонов Никита Никитич**
 
 
 1. Скачайте библиотеку *boost* с помощью утилиты **wget**. Адрес для скачивания `https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz`.
@@ -19,23 +19,34 @@ $ tar -xf boost_1_69_0.tar.gz -C ~
 3. Подсчитайте количество файлов в директории `~/boost_1_69_0` **не включая** вложенные директории.
 ```sh
 $ cd ~/boost_1_69_0
-$ find -maxdepth 1 ! -type d  | wc
-     16      16     210
+$ find -maxdepth 1 ! -type d  | wc -l
+16
 ```
 4. Подсчитайте количество файлов в директории `~/boost_1_69_0` **включая** вложенные директории.
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ find -type f | wc -l
+61813
 ```
 5. Подсчитайте количество заголовочных файлов, файлов с расширением `.cpp`, сколько остальных файлов (не заголовочных и не `.cpp`).
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ find ! -type d -name "*.h" | wc -l; find -type f -name "*.cpp" | wc -l; find -type f ! -name "*.cpp" ! -name "*.h" | wc -l
+296
+13786
+47731
 ```
 6. Найдите полный пусть до файла `any.hpp` внутри библиотеки *boost*.
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ find -name "any.hpp"
+./boost/type_erasure/any.hpp
+./boost/fusion/include/any.hpp
+./boost/fusion/algorithm/query/any.hpp
+./boost/fusion/algorithm/query/detail/any.hpp
+./boost/proto/detail/any.hpp
+./boost/any.hpp
+./boost/hana/fwd/any.hpp
+./boost/hana/any.hpp
+./boost/spirit/home/support/algorithm/any.hpp
+./boost/xpressive/detail/utility/any.hpp
 ```
 7. Выведите в консоль все файлы, где упоминается последовательность `boost::asio`.
 ```sh
