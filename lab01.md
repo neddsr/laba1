@@ -1,4 +1,3 @@
-<!--- Шаблон к оформлению домашней работы -->
 
 ## Домашнее задание
 
@@ -9,30 +8,58 @@
 1. Скачайте библиотеку *boost* с помощью утилиты **wget**. Адрес для скачивания `https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz`.
 ```sh
 $ wget https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
-<вывод команды>
+--2025-03-01 11:19:38--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
+Распознаётся sourceforge.net (sourceforge.net)… 104.18.12.149, 104.18.13.149, 2606:4700::6812:c95, ...
+Подключение к sourceforge.net (sourceforge.net)|104.18.12.149|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 301 Moved Permanently
+Адрес: https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz/ [переход]
+--2025-03-01 11:19:39--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz/
+Повторное использование соединения с sourceforge.net:443.
+HTTP-запрос отправлен. Ожидание ответа… 301 Moved Permanently
+Адрес: https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz/download [переход]
+--2025-03-01 11:19:39--  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz/download
+Повторное использование соединения с sourceforge.net:443.
+HTTP-запрос отправлен. Ожидание ответа… 302 Found
+Адрес: https://downloads.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.gz?ts=gAAAAABnwsMc4HCxO4PzwNN0VEZve08cwJ5PLJyGEFVNLN1NhakMU_QD8Kjep_xaoTiN88hHRXuLUQfMgYAj1NMW4xwS_RvSnA%3D%3D&use_mirror=altushost-swe&r= [переход]
+--2025-03-01 11:19:40--  https://downloads.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.gz?ts=gAAAAABnwsMc4HCxO4PzwNN0VEZve08cwJ5PLJyGEFVNLN1NhakMU_QD8Kjep_xaoTiN88hHRXuLUQfMgYAj1NMW4xwS_RvSnA%3D%3D&use_mirror=altushost-swe&r=
+Распознаётся downloads.sourceforge.net (downloads.sourceforge.net)… 104.18.13.149, 104.18.12.149, 2606:4700::6812:d95, ...
+Подключение к downloads.sourceforge.net (downloads.sourceforge.net)|104.18.13.149|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 302 Found
+Адрес: https://altushost-swe.dl.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.gz?viasf=1 [переход]
+--2025-03-01 11:19:40--  https://altushost-swe.dl.sourceforge.net/project/boost/boost/1.69.0/boost_1_69_0.tar.gz?viasf=1
+Распознаётся altushost-swe.dl.sourceforge.net (altushost-swe.dl.sourceforge.net)… 79.142.76.130
+Подключение к altushost-swe.dl.sourceforge.net (altushost-swe.dl.sourceforge.net)|79.142.76.130|:443... соединение установлено.
+HTTP-запрос отправлен. Ожидание ответа… 200 OK
+Длина: 111710205 (107M) [application/x-gzip]
+Сохранение в: «boost_1_69_0.tar.gz»
+
+boost_1_69_0.ta 100%[=====>] 106,53M  13,4MB/s    за 8,3s    
+
+2025-03-01 11:19:50 (12,8 MB/s) - «boost_1_69_0.tar.gz» сохранён [111710205/111710205]
 ```
 2. Разархивируйте скаченный файл в директорию `~/boost_1_69_0`
 ```sh
 $ tar -xf boost_1_69_0.tar.gz -C ~
-<вывод команды>
+
 ```
 3. Подсчитайте количество файлов в директории `~/boost_1_69_0` **не включая** вложенные директории.
 ```sh
 $ cd ~/boost_1_69_0
 $ find -maxdepth 1 ! -type d  | wc -l
-16
+12
 ```
 4. Подсчитайте количество файлов в директории `~/boost_1_69_0` **включая** вложенные директории.
 ```sh
 $ find -type f | wc -l
-61813
+61191
 ```
 5. Подсчитайте количество заголовочных файлов, файлов с расширением `.cpp`, сколько остальных файлов (не заголовочных и не `.cpp`).
 ```sh
-$ find ! -type d -name "*.h" | wc -l; find -type f -name "*.cpp" | wc -l; find -type f ! -name "*.cpp" ! -name "*.h" | wc -l
+find -type f -name "*.h" | wc -l; find -type f -name "*.hpp" | wc -l; find -type f -name "*.cpp" | wc -l; find -type f ! -name "*.cpp" ! -name "*.h" ! -name "*.hpp" | wc -l
 296
-13786
-47731
+14912
+13774
+32210
 ```
 6. Найдите полный пусть до файла `any.hpp` внутри библиотеки *boost*.
 ```sh
