@@ -50,9 +50,10 @@ $ find -name "any.hpp"
 ```
 7. Выведите в консоль все файлы, где упоминается последовательность `boost::asio`.
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ grep -rl "boost::asio" > task7.txt
 ```
+[вывод команды](https://github.com/neddsr/lab01/blob/main/task7.txt)
+
 8. Скомпилирутйе *boost*. Можно воспользоваться [инструкцией](https://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html#or-build-custom-binaries) или [ссылкой](https://codeyarns.com/2017/01/24/how-to-build-boost-on-linux/).
 ```sh
 $ <команда с необходимыми ключами>
@@ -65,11 +66,46 @@ $ <команда с необходимыми ключами>
 ```
 10. Подсчитайте сколько занимает дискового пространства каждый файл в этой директории.
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ cd ~/boost-libs
+$ find -type f -exec du -h {} + | sort -h
+4,0K    ./libboost_atomic.a
+4,0K    ./libboost_exception.a
+4,0K    ./libboost_stacktrace_noop.a
+4,0K    ./libboost_system.a
+16K     ./libboost_stacktrace_basic.a
+20K     ./libboost_context.a
+20K     ./libboost_stacktrace_backtrace.a
+36K     ./libboost_stacktrace_addr2line.a
+52K     ./libboost_timer.a
+80K     ./libboost_random.a
+152K    ./libboost_container.a
+152K    ./libboost_date_time.a
+208K    ./libboost_prg_exec_monitor.a
+232K    ./libboost_chrono.a
+232K    ./libboost_fiber.a
+276K    ./libboost_iostreams.a
+320K    ./libboost_contract.a
+404K    ./libboost_filesystem.a
+776K    ./libboost_wserialization.a
+828K    ./libboost_graph.a
+1,2M    ./libboost_serialization.a
+1,5M    ./libboost_program_options.a
+2,2M    ./libboost_test_exec_monitor.a
+2,2M    ./libboost_unit_test_framework.a
+3,1M    ./libboost_regex.a
+4,5M    ./libboost_wave.a
 ```
 11. Найдите *топ10* самых "тяжёлых".
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ find -type f -exec du -h {} + | sort -hr | head -n 10
+4,5M    ./libboost_wave.a
+3,1M    ./libboost_regex.a
+2,2M    ./libboost_unit_test_framework.a
+2,2M    ./libboost_test_exec_monitor.a
+1,5M    ./libboost_program_options.a
+1,2M    ./libboost_serialization.a
+828K    ./libboost_graph.a
+776K    ./libboost_wserialization.a
+404K    ./libboost_filesystem.a
+320K    ./libboost_contract.a
 ```
