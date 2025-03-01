@@ -59,7 +59,7 @@ find -type f -name "*.h" | wc -l; find -type f -name "*.hpp" | wc -l; find -type
 296
 14912
 13774
-32210
+32209
 ```
 6. Найдите полный пусть до файла `any.hpp` внутри библиотеки *boost*.
 ```sh
@@ -83,9 +83,10 @@ $ grep -rl "boost::asio" > task7.txt
 
 8. Скомпилирутйе *boost*. Можно воспользоваться [инструкцией](https://www.boost.org/doc/libs/1_61_0/more/getting_started/unix-variants.html#or-build-custom-binaries) или [ссылкой](https://codeyarns.com/2017/01/24/how-to-build-boost-on-linux/).
 ```sh
-$ <команда с необходимыми ключами>
-<вывод команды>
+$ ./bootstrap.sh; ./b2 > task8.txt
 ```
+[вывод команды]()
+
 9. Перенесите все скомпилированные на предыдущем шаге статические библиотеки в директорию `~/boost-libs`.
 ```sh
 $ <команда с необходимыми ключами>
