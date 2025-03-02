@@ -55,9 +55,8 @@ $ find -type f | wc -l
 ```
 5. Подсчитайте количество заголовочных файлов, файлов с расширением `.cpp`, сколько остальных файлов (не заголовочных и не `.cpp`).
 ```sh
-find -type f -name "*.h" | wc -l; find -type f -name "*.hpp" | wc -l; find -type f -name "*.cpp" | wc -l; find -type f ! -name "*.cpp" ! -name "*.h" ! -name "*.hpp" | wc -l
-296
-14912
+$ find -type f \( -name "*.h" -o -name "*.hpp" \) | wc -l; find -type f -name "*.cpp" | wc -l; find -type f ! -name "*.cpp" ! -name "*.h" ! -name "*.hpp" | wc -l
+15208
 13774
 32209
 ```
